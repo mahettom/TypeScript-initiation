@@ -5,7 +5,7 @@ import './App.css'
 const App: FC = () => {
 
   const [task, setTask] = useState<string>('');
-  const [deadline, setDeadline] = useState<number>();
+  const [deadline, setDeadline] = useState<number>(0);
   const [todoList, setTodoList] = useState<ITasks[]>([]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -18,8 +18,8 @@ const App: FC = () => {
   }
 
   const addTask = (): void => {
-    
-    setTodoList([...todoList, task])
+    const newTask = {taskName: task, deadline: deadline};
+    setTodoList([...todoList, newTask])
   }
 
   return (
