@@ -1,7 +1,13 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import './App.css'
 
 const App: FC = () => {
+
+  const [task, setTask] = useState<string>('');
+  const [deadline, setDeadline] = useState<number>();
+  const [todo, setTodo] = useState([]);
+
+
 
   return (
     <>
@@ -12,7 +18,7 @@ const App: FC = () => {
       </div>
       <button>ADD</button>
     </header>
-    
+
     <section>
 
     </section>
