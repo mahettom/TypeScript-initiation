@@ -1,11 +1,11 @@
-import React from 'react'
 import { ITasks } from '../Interfaces'
 
 interface Props {
     task: ITasks;
+    taskComplete(taskNameToDelete: string): void;
 }
 
-const TodoTask = ({task}: Props) => {
+const TodoTask = ({task, taskComplete}: Props) => {
 
 
   return (
@@ -16,7 +16,7 @@ const TodoTask = ({task}: Props) => {
                 <span>{task.deadline}</span>
             </div>
             
-            <button>x</button>
+            <button onClick={() => {taskComplete(task.taskName)}}>x</button>
         </div>
     </>
   )
