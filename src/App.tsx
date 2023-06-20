@@ -1,6 +1,7 @@
 import { FC, useState, ChangeEvent } from 'react'
 import { ITasks } from './Interfaces';
 import './App.css'
+import TodoTask from './Components/TodoTask';
 
 const App: FC = () => {
 
@@ -20,20 +21,25 @@ const App: FC = () => {
   const addTask = (): void => {
     const newTask = {taskName: task, deadline: deadline};
     setTodoList([...todoList, newTask])
+    console.log(todoList);
+    setTask('')
+    setDeadline(0)
   }
 
   return (
     <>
     <header>
       <div>
-      <input type="text" placeholder='Task ...' name='task' onChange={handleChange}/>
-      <input type="number" placeholder='Deadline in days' name='deadline' onChange={handleChange}/>
+      <input type="text" placeholder='Task ...' name='task' value={task} onChange={handleChange}/>
+      <input type="number" placeholder='Deadline in days' name='deadline' value={deadline} onChange={handleChange}/>
       </div>
       <button onClick={addTask}>ADD</button>
     </header>
 
     <section>
-
+      {todoList.map((task: ITasks, key: number) => {
+        return <TodoTask key={key} task={task}/>
+      })}
     </section>
       
     </>
