@@ -26,9 +26,23 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.task {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  gap: 3rem;
+  width: 25rem;
+  margin-top: 3rem;
+}
+.task-info {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
 }
 
 h1 {
